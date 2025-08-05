@@ -1,0 +1,20 @@
+# Python キャッシュ・一時ファイル
+__pycache__/
+*.py[cod]
+*.so
+
+# 仮想環境（Windows/Linux共通）
+venv/
+env/
+.venv/
+
+# 出力ファイル/ログ類
+output/
+*.log
+
+# 環境変数・APIキーなど
+.env
+apikey.txt
+
+# Mac のメタファイル（ある場合）
+.DS_Store
