@@ -2,11 +2,12 @@ import streamlit as st
 import pandas as pd
 import io
 from datetime import datetime
+from pytz import timezone
 from app.yuucho_to_freee_converter import convert_yuucho_to_freee
 
 st.set_page_config(page_title="ゆうちょ明細CSV整形ツール", layout="centered")
 
-st.title("📄 ゆうちょ明細 → freeeアップロード形式CSV 変換ツール")
+st.title("📄 ゆうちょ明細 → freee形式CSV 変換ツール")
 st.caption("※ このツールは freee株式会社とは関係のない非公式ツールです。freeeのCSV仕様に基づいて整形を行います。")
 
 # 🔰 使い方ガイド
@@ -57,6 +58,10 @@ if uploaded_file:
 
         st.success("✅ 変換完了！以下からダウンロードできます（freeeでそのままアップロード可能です）")
 
+        jst = timezone('Asia/Tokyo')
+        today_str = datetime.now(jst).strftime('%Y%m%d')
+        file_name = f"yuucho_to_freee_{today_str}.csv"
+        
         st.download_button(
             label="📥 freee形式CSVをダウンロード",
             data=csv_bytes,
