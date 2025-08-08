@@ -5,6 +5,21 @@ from datetime import datetime
 from pytz import timezone
 from app.yuucho_to_freee_converter import convert_yuucho_to_freee
 
+# Google Analytics 測定ID
+GA_MEASUREMENT_ID = "G-3S6WW37HTF"
+
+# Googleタグを埋め込む（StreamlitのHTMLに挿入）
+st.components.v1.html(f"""
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', '{GA_MEASUREMENT_ID}');
+</script>
+""", height=0, width=0)
+
 st.set_page_config(page_title="ゆうちょ明細CSV整形ツール", layout="centered")
 
 st.title("📄 ゆうちょ明細 → freee形式CSV 変換ツール")
