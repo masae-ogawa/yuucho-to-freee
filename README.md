@@ -96,6 +96,8 @@ http://localhost:8501
 * `.gitignore` に `output/`, `__pycache__/`, `.pyc` 等を除外済み
 * READMEは開発者向けログ。ユーザー向けの導線は Web UI に一本化
 * GitHub Topics 設定済：`python`, `converter`, `csv`, `freee`, `streamlit`, `automation`
+* ゆうちょダイレクトでは「通帳未記入分」があるとCSV出力自体が不可となる仕様を確認済み。
+  → そのため「合算された行」を含むCSVは基本的に発生せず、現時点では特別な対応は不要。
 
 ---
 
