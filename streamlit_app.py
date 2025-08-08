@@ -5,27 +5,21 @@ from datetime import datetime
 from pytz import timezone
 from app.yuucho_to_freee_converter import convert_yuucho_to_freee
 
-# Google Tag Manager の埋め込みコード（GTM-M34FBQD5 に置き換わっていることを確認）
-st.markdown("""
-<!-- Google Tag Manager -->
+# ✅ GA4のタグをheadの代替として<body>内に埋め込む（GTMではなくgtag.jsを使用）
+GA_MEASUREMENT_ID = "G-3S6WW37HTF"  # ← あなたのGA4タグに置き換えてください
+
+st.components.v1.html(f"""
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
 <script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id=GTM-M34FBQD5'+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M34FBQD5');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', '{GA_MEASUREMENT_ID}');
 </script>
-<!-- End Google Tag Manager -->
-""", unsafe_allow_html=True)
+""", height=0)
 
-# noscript対応コード（あってもなくても可／SEOには効果あり）
-st.markdown("""
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M34FBQD5"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-""", unsafe_allow_html=True)
-
+# ✅ Streamlitページ設定
 st.set_page_config(page_title="ゆうちょ明細CSV整形ツール", layout="centered")
 
 st.title("📄 ゆうちょ明細 → freee形式CSV 変換ツール")
@@ -34,9 +28,9 @@ st.caption("※ このツールは freee株式会社とは関係のない非公�
 # 🔰 使い方ガイド
 with st.expander("🔰 使い方ガイド（初めての方へ）"):
     st.markdown("""
-1. ゆうちょダイレクトからダウンロードした明細CSVファイルをアップロード
-2. 自動でfreeeのアップロード形式に変換されます
-3. プレビューで確認後、「CSVをダウンロード」ボタンを押してください
+1. ゆうちょダイレクトからダウンロードした明細CSVファイルをアップロード  
+2. 自動でfreeeのアップロード形式に変換されます  
+3. プレビューで確認後、「CSVをダウンロード」ボタンを押してください  
 
 💡 対応フォーマット：ゆうちょダイレクトの明細CSV（cp932形式）
 """)
@@ -44,9 +38,9 @@ with st.expander("🔰 使い方ガイド（初めての方へ）"):
 # 📎 freee仕様ガイド
 with st.expander("📎 freeeのCSV形式（公式ヘルプ）"):
     st.markdown("""
-freee会計では、銀行やカードの明細データを特定のCSV形式でアップロードできます。
-このツールは、その **「手動アップロード用CSVフォーマット」** に合わせて、
-ゆうちょダイレクトからダウンロードしたCSV明細を整形します。
+freee会計では、銀行やカードの明細データを特定のCSV形式でアップロードできます。  
+このツールは、その **「手動アップロード用CSVフォーマット」** に合わせて、  
+ゆうちょダイレクトからダウンロードしたCSV明細を整形します。  
 
 👉 [freeeのアップロード形式はこちら（公式ヘルプ）](https://support.freee.co.jp/hc/ja/articles/202847810)
 
@@ -54,16 +48,16 @@ freee会計では、銀行やカードの明細データを特定のCSV形式で
 
 ### 本ツールが対応するCSV形式（freeeのアップロード仕様）
 
-このツールは、freeeがサポートする以下のテンプレートのうち、
+このツールは、freeeがサポートする以下のテンプレートのうち、  
 **「銀行口座の入出金履歴」用フォーマット**に対応しています。
 
-- 現金取引の明細（※ 対応していません）
-- 銀行口座の入出金履歴（✅ 対応済み）
-- クレジットカード利用明細（※ 対応していません）
+- 現金取引の明細（※ 対応していません）  
+- 銀行口座の入出金履歴（✅ 対応済み）  
+- クレジットカード利用明細（※ 対応していません）  
 
 ---
 
-変換後のCSVは、freeeの画面からそのままアップロード可能です ✅
+変換後のCSVは、freeeの画面からそのままアップロード可能です ✅  
 形式に合わないCSVをfreeeに登録しようとしてエラーになる方におすすめです。
 """)
 
@@ -75,14 +69,12 @@ if uploaded_file:
         df_converted = convert_yuucho_to_freee(uploaded_file)
 
         csv_bytes = df_converted.to_csv(index=False, encoding="utf-8-sig").encode("utf-8-sig")
-        file_name = f"yuucho_to_freee_{datetime.today().strftime('%Y%m%d')}.csv"
-
-        st.success("✅ 変換完了！以下からダウンロードできます（freeeでそのままアップロード可能です）")
-
         jst = timezone('Asia/Tokyo')
         today_str = datetime.now(jst).strftime('%Y%m%d')
         file_name = f"yuucho_to_freee_{today_str}.csv"
-        
+
+        st.success("✅ 変換完了！以下からダウンロードできます（freeeでそのままアップロード可能です）")
+
         st.download_button(
             label="📥 freee形式CSVをダウンロード",
             data=csv_bytes,
