@@ -5,13 +5,6 @@ from datetime import datetime
 from pytz import timezone
 from app.yuucho_to_freee_converter import convert_yuucho_to_freee
 
-import streamlit.components.v1 as components  # ✅ 追加
-
-# ✅ Search Console 所有権確認用 metaタグを埋め込む
-components.html("""
-<meta name="google-site-verification" content="JXVwnrRCJpTX0OVFIk6JUp2sRl3UyHixK2hsrUAauKE" />
-""", height=0)
-
 st.set_page_config(page_title="ゆうちょ明細CSV整形ツール", layout="centered")
 
 st.title("📄 ゆうちょ明細 → freee形式CSV 変換ツール")
