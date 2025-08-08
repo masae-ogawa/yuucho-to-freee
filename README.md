@@ -1,126 +1,110 @@
-# README.md（2025年8月更新）
+⚠️ このREADMEは開発者自身が「どこまで進んでいたか／次に何をやるか」を即把握するための作業ログです。
+ユーザー向けの使い方は Web UI（[Streamlitアプリ](https://yuucho-to-freee.streamlit.app/)）をご確認ください。
 
-⚠️ このREADMEは開発者向けの作業ログ＆再開ガイドです。
-ユーザー向けの使い方は `streamlit_app.py` のUIをご覧ください（Webアプリ提供中）。
+---
 
-# ゆうちょ明細 → freeeアップロード形式変換ツール（非公式）
+# 📂 ゆうちょ明細 → freee形式 変換ツール（非公式）
 
-## プロジェクト概要
+## ✅ プロジェクト概要
 
-ゆうちょ銀行の明細CSVをfreeeの「手動アップロード用CSVフォーマット」に変換する非公式ツールである。
+ゆうちょ銀行の明細CSVを、freee公式の手動アップロード形式に変換する非公式ツールです。
 
-- ゆうちょダイレクトのCSVフォーマットに対応
-- freeeのCSVテンプレートに自動変換
-- ブラウザ上で動作（Streamlit製）、登録不要で利用可能
-- freee株式会社とは無関係の個人開発ツールである
+- ゆうちょダイレクトのCSV（Shift-JIS）に対応
+- freeeのCSVテンプレート形式に変換
+- 登録不要・無料・Webブラウザ完結（Streamlit製）
 
-## 公開情報
+---
+
+## 🌐 公開情報まとめ
 
 | 項目 | URL |
 |------|-----|
-| Webツール | [https://yuucho-to-freee.streamlit.app/](https://yuucho-to-freee.streamlit.app/) |
-| GitHub（プロダクト） | [https://github.com/masae-ogawa/yuucho-to-freee](https://github.com/masae-ogawa/yuucho-to-freee) |
-| X（プロダクト用） | [https://x.com/yuucho2freee](https://x.com/yuucho2freee) |
-| X（開発者個人） | [https://x.com/masae_dev](https://x.com/masae_dev) |
-| GitHub（開発者ポートフォリオ） | [https://github.com/masae-ogawa](https://github.com/masae-ogawa) |
+| Webツール | https://yuucho-to-freee.streamlit.app/ |
+| GitHub | https://github.com/masae-ogawa/yuucho-to-freee |
+| X（プロダクト） | https://x.com/yuucho2freee |
+| X（開発者） | https://x.com/masae_dev |
+| Zenn記事 | https://zenn.dev/masae_dev/articles/7027471051c06c |
+| note記事 | https://note.com/masae_dev/n/na0ee1045f8f2 |
 
-## 現在の状態（2025-08-07 時点）
+---
 
-| 項目 | 状態 |
-|------|------|
-| CLI形式のCSV変換 | 完成済 |
-| StreamlitによるWeb UI | 一般公開済み（初回リリース完了） |
-| GitHubへの公開 | 済（masae-ogawaアカウント） |
-| 商用展開（収益化） | 利用状況を元に仮説検証中 |
-| プロダクト紹介投稿（X） | 初回投稿およびプロフィール整備完了 |
-| 他プロダクト展開 | 第2弾プロダクト企画中（海外向けも視野） |
-| ブランド構築 | X Pro切替、カテゴリ設定、表示名確定済 |
+## 📌 現在の進行状況（2025-08-08 時点）
 
-## サンプル入力ファイル（ゆうちょCSV）
+| 項目                             | 状態                             |
+|----------------------------------|----------------------------------|
+| CLI形式でのCSV変換               | ✅ 実装完了（main.py）           |
+| Streamlit UI初版                 | ✅ 公開済み                      |
+| Google検索2位ランクイン         | ✅ 確認済（2025/08/07）          |
+| ChatGPTでの文脈登場             | ✅ セッション内にて再現確認済み  |
+| GitHub Topics設定               | ✅ 済（python, converter 他）    |
+| Xプロダクトアカウント整備        | ✅ 済                            |
+| ✅ Xスレッド投稿（AI紹介戦略）    | ✅ 投稿完了（日時）              |
+| ✅ note記事（再現戦略まとめ）     | ✅ 投稿完了（日時）              |
+| ✅ GitHub README更新              | ✅ AI登場例・検索状況など反映済み|
+| ✅ Zenn技術記事投稿                | ✅ 公開済み（日時）              |
+| Medium英語記事構想               | 📅 次月以降予定                  |
+| 第2弾プロダクト構想              | ⏳ 海外銀行対応など検討中       |
+| 収益化方針                       | 🧪 ユーザー傾向に応じて検証中   |
 
-```csv
-取引日,入出金明細ＩＤ,受入金額（円）,払出金額（円）,詳細１,詳細２,現在（貸付）高,
-20250728,202507280000001,,50000,自払,ﾔﾁﾝ ﾄｳ,102551,
-```
+---
 
-## 変換後の出力（freee形式CSV）
+## 🧭 現状まとめ（自分用メモ）
 
-```csv
-取引日,出金額,入金額,残高,取引内容
-2025-07-28,50000,,102551,自払 ﾔﾁﾝ ﾄｳ
-```
+- ✅ SEO・AI検索の両方から自然流入が発生する状態を実現済み
+- ✅ ツールの有用性・再現性を軸に発信を完了（SNS＋記事）
+- 📌 今後は **拡張（他行・多国籍） or マネタイズ設計** にフェーズを移行していく想定
 
-## 使用技術・構成
+---
 
-| 技術        | 用途                  |
-| --------- | ------------------- |
-| Python    | コアロジックおよびCSV処理      |
-| pandas    | データフレーム変換処理         |
-| Streamlit | UI構築およびWebアプリケーション化 |
-| GitHub    | ソースコード管理および公開       |
-
-## ディレクトリ構成
+## 🗂️ ディレクトリ構成（2025年8月時点）
 
 ```
+
 yuucho-to-freee/
 ├── app/
-│   └── yuucho_to_freee_converter.py
-├── streamlit_app.py
+│   └── yuucho\_to\_freee\_converter.py
+├── streamlit\_app.py
 ├── main.py
-├── sample_data/
-│   └── sample_yuucho.csv
+├── sample\_data/
+│   └── sample\_yuucho.csv
 ├── output/
 ├── requirements.txt
 ├── .gitignore
-└── README.md
-```
+└── README.md  # 本ファイル
 
-## Streamlit UIの仕様（2025年8月版）
+````
 
-| 機能         | 内容                      |
-| ---------- | ----------------------- |
-| ファイルアップロード | ゆうちょCSVをアップロード（cp932対応） |
-| 自動変換       | pandasを用いてfreee形式に変換    |
-| ダウンロードボタン  | utf-8-sigで保存されたCSVを返却   |
-| 明細プレビュー    | 変換結果の上位5件を画面上に表示        |
-| ユーザー向け文言   | 初心者にも理解可能なラベルと説明をUI内に配置 |
+---
 
-## 今後の拡張・収益化アイデア（検証中）
+## ✅ 再開時チェックリスト
 
-| 区分     | 概要                            |
-| ------ | ----------------------------- |
-| フリーミアム | 月3件までは無料、それ以降は課金（例: 980円/月）   |
-| 都度課金   | 変換ごとに課金（例: Stripe Checkout連携） |
-| 自動仕訳連携 | 他銀行にも対応した自動仕訳ツールとの統合販売        |
-| 海外展開   | 他国フォーマットから会計ツール変換への応用         |
-| ノウハウ販売 | note記事やガイドPDFとのバンドル           |
-| LP強化   | Streamlitに導入ガイドやFAQを組み込む計画    |
+```bash
+# 仮想環境をアクティベート
+venv\Scripts\activate
 
-## 再開時のチェックリスト（開発者用）
+# Streamlitアプリ起動
+streamlit run streamlit_app.py
 
-1. 仮想環境の有効化
+# ブラウザで確認
+http://localhost:8501
+````
 
-   ```bash
-   venv\Scripts\activate
-   ```
+---
 
-2. Streamlitで実行（ローカル確認）
+## 📝 補足メモ
 
-   ```bash
-   streamlit run streamlit_app.py
-   ```
+* `.gitignore` に `output/`, `__pycache__/`, `.pyc` 等を除外済み
+* READMEは開発者向けログ。ユーザー向けの導線は Web UI に一本化
+* GitHub Topics 設定済：`python`, `converter`, `csv`, `freee`, `streamlit`, `automation`
 
-3. ブラウザで `http://localhost:8501` にアクセスし、ファイルアップロード、変換、ダウンロードを確認すること
+---
 
-## 商標等に関する注意事項
+✅ このツールは「freeeにゆうちょ明細CSVを取り込めず困っている人」にピンポイントで応えるプロダクトです。
 
-* 本ツールはfreee株式会社の公式サービスではない
-* 公開されている「CSVアップロード仕様」に準拠している
-* 「非公式」「freee対応形式」「参考ツール」などの表現を使用している
+現時点では「検索＋AI推薦」による自然な発見が起き始めており、次の展開として：
 
-## 補足・備考
+* 🧪 収益化（軽量SaaS）
+* 🌍 他行・海外対応
+* 📣 発信強化／自動流入育成
 
-* `.gitignore` により `.pyc`, `__pycache__/`, `output/` 等を除外設定済
-* 本READMEは開発者向けの作業ガイドおよびドキュメントであり、ユーザー向け説明はWeb UI内に含まれる
-
-本ツールは、ゆうちょ明細をfreeeに取り込めないケースを解消する実用的なCSV変換ツールとして開発された。今後も状況を見ながら改善、拡張、有料化などを検討する。
+を軸にステップアップしていく方針です。
