@@ -21,7 +21,7 @@
 |------|-----|
 | Webツール | https://yuucho-to-freee.streamlit.app/ |
 | GitHub | https://github.com/masae-ogawa/yuucho-to-freee |
-| X（プロダクト） | https://x.com/yuucho2freee |
+| X（プロダクト） | https://x.com/yuucho_to_freee |
 | X（開発者） | https://x.com/masae_dev |
 | Zenn記事 | https://zenn.dev/masae_dev/articles/7027471051c06c |
 | note記事 | https://note.com/masae_dev/n/na0ee1045f8f2 |
