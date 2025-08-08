@@ -5,15 +5,15 @@ from datetime import datetime
 from pytz import timezone
 from app.yuucho_to_freee_converter import convert_yuucho_to_freee
 
-# Google Tag Manager の埋め込みコード（GTM-M34J6FD5 に置き換わっていることを確認）
+# Google Tag Manager の埋め込みコード（GTM-M34FBQD5 に置き換わっていることを確認）
 st.markdown("""
 <!-- Google Tag Manager -->
 <script>
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id=GTM-M34J6FD5'+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M34J6FD5');
+'https://www.googletagmanager.com/gtm.js?id=GTM-M34FBQD5'+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M34FBQD5');
 </script>
 <!-- End Google Tag Manager -->
 """, unsafe_allow_html=True)
@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 # noscript対応コード（あってもなくても可／SEOには効果あり）
 st.markdown("""
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M34J6FD5"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M34FBQD5"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 """, unsafe_allow_html=True)
