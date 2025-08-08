@@ -38,10 +38,10 @@
 | ChatGPTでの文脈登場             | ✅ セッション内にて再現確認済み  |
 | GitHub Topics設定               | ✅ 済（python, converter 他）    |
 | Xプロダクトアカウント整備        | ✅ 済                            |
-| ✅ Xスレッド投稿（AI紹介戦略）    | ✅ 投稿完了（日時）              |
-| ✅ note記事（再現戦略まとめ）     | ✅ 投稿完了（日時）              |
+| ✅ Xスレッド投稿（AI紹介戦略）    | ✅ 投稿完了（2025/08/08）              |
+| ✅ note記事（再現戦略まとめ）     | ✅ 投稿完了（2025/08/08）              |
 | ✅ GitHub README更新              | ✅ AI登場例・検索状況など反映済み|
-| ✅ Zenn技術記事投稿                | ✅ 公開済み（日時）              |
+| ✅ Zenn技術記事投稿                | ✅ 公開済み（2025/08/08）              |
 | Medium英語記事構想               | 📅 次月以降予定                  |
 | 第2弾プロダクト構想              | ⏳ 海外銀行対応など検討中       |
 | 収益化方針                       | 🧪 ユーザー傾向に応じて検証中   |
@@ -62,11 +62,11 @@
 
 yuucho-to-freee/
 ├── app/
-│   └── yuucho\_to\_freee\_converter.py
-├── streamlit\_app.py
+│   └── yuucho_to_freee_converter.py
+├── streamlit_app.py
 ├── main.py
-├── sample\_data/
-│   └── sample\_yuucho.csv
+├── sample_data/
+│   └── sample_yuucho.csv
 ├── output/
 ├── requirements.txt
 ├── .gitignore
