@@ -5,19 +5,25 @@ from datetime import datetime
 from pytz import timezone
 from app.yuucho_to_freee_converter import convert_yuucho_to_freee
 
-# Google Analytics 測定ID
-GA_MEASUREMENT_ID = "G-3S6WW37HTF"
-
-# Googleタグを埋め込む（StreamlitのHTMLに直接挿入）
-st.markdown(f"""
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
+# Google Tag Manager の埋め込みコード（GTM-M34J6FD5 に置き換わっていることを確認）
+st.markdown("""
+<!-- Google Tag Manager -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
-  gtag('config', '{GA_MEASUREMENT_ID}');
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id=GTM-M34J6FD5'+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M34J6FD5');
 </script>
+<!-- End Google Tag Manager -->
+""", unsafe_allow_html=True)
+
+# noscript対応コード（あってもなくても可／SEOには効果あり）
+st.markdown("""
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M34J6FD5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 """, unsafe_allow_html=True)
 
 st.set_page_config(page_title="ゆうちょ明細CSV整形ツール", layout="centered")
